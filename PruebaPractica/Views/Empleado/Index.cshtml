@@ -1,0 +1,86 @@
+﻿@model IEnumerable<PruebaPractica.Core.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombres)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Apellidos)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fechanacimiento)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Valoraganar)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdestadocivilNavigation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdtipodocumentoNavigation)
+                        </th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Apellidos)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fechanacimiento)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Valoraganar)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdestadocivilNavigation.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdtipodocumentoNavigation.Nombre)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+            $("#dataTable").DataTable({
+                pageLength: 5,
+                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                },
+                responsive: true,
+                autoWidth: false,
+            });
+        });
+
+    </script>
+}
