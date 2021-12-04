@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PruebaPractica.Core.Interfaces;
+using PruebaPractica.Infraestructura.Repositorio;
 
 namespace PruebaPractica
 {
@@ -27,6 +29,8 @@ namespace PruebaPractica
             services.AddControllersWithViews();
             services.AddDbContext<CrudApiContext>(options =>
          options.UseSqlServer(Configuration.GetConnectionString("ClientConnection")));
+          services.AddScoped(typeof(IEmpleadoEntidad), typeof(EmpleadoRepositoryo));
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

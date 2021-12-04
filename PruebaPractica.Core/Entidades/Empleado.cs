@@ -48,28 +48,7 @@ namespace PruebaPractica.Core
     }
 
 
-    public partial class EmpleadoDto
-    {
-        public int Id { get; set; }
 
-         public string Nombres { get; set; }
-  public string Apellidos { get; set; }
-
-        public int Idtipodocumento { get; set; }
-
-        public DateTime Fechanacimiento { get; set; }
-
-         public string Valoraganar { get; set; }
-
-        public int Idestadocivil { get; set; }
-
-         public virtual Estadocivil IdestadocivilNavigation { get; set; }
-
-         public virtual Documento IdtipodocumentoNavigation { get; set; }
-
-
-        public IEnumerable<ListEstado> ListEstado { get; set; }
-    }
 
     public class ListEstado
     {
@@ -77,7 +56,7 @@ namespace PruebaPractica.Core
 
         public int IdEstado { get; set; }
         public string NameEstado { get; set; }
-       // public bool check { get; set; }
+        // public bool check { get; set; }
 
     }
 }
